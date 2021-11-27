@@ -5,9 +5,10 @@ const Api = {
   fetchPost: (data) => {
     return fetch(`${Api.apiUrl}/add`, {
       method: 'POST',
-      
+
       body: JSON.stringify(data),
-      headers: new Headers({
+      headers: new Headers
+      ({
         "Content-Type": "application/json"
       })
     })
