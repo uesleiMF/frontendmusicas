@@ -1,5 +1,5 @@
 const Api = {
-  apiUrl: 'http://localhost:3001/musicas',
+  apiUrl: 'https://app-pok.herokuapp.com/',
   fetchGetAll: () => fetch(Api.apiUrl),
   fetchGetById: (id) => fetch(`${Api.apiUrl}/${id}`),
   fetchPost: (data) => {
