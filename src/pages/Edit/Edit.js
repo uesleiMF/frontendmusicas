@@ -5,7 +5,7 @@ import Api from "../../api/api";
 const Edit = () => {
   const navigate = useNavigate();
   //declarar o estado da musica
-  const [musica, setMusica] = useState({
+  const [produto, setProduto] = useState({
     nome: '',
     autor: '',
     genero: '',
@@ -14,7 +14,7 @@ const Edit = () => {
   });
   
   useEffect(() => {
-    getMusicaById();
+    getProdutoById();
   }, []);
 
   // buscar a musica que ja foi cadastrado no banco.
@@ -22,25 +22,25 @@ const Edit = () => {
   const { id } = useParams();
 
   //buscar a musica por id;
-  const getMusicaById = async () => {
+  const getProdutoById = async () => {
     const request = await Api.fetchGetById(id);
-    const musica = await request.json();
-    setMusica(musica);
+    const produto = await request.json();
+    setMusica(produto);
   };
 
   const handleFieldsChange = (evento) => {
     // copio o objeto do estado.
-    const musicaEdit = { ...musica };
+    const produtoEdit = { ...produto };
     // musicaEdit['nome'] = 'novo valor'
     // atualiza os campos do objeto de forma dinamica de acordo com o input que o usuario digitou
-    musicaEdit[evento.target.name] = evento.target.value;
+    produtoEdit[evento.target.name] = evento.target.value;
     // atualzo estado musica
-    setMusica(musicaEdit);
+    setProduto(produtoEdit);
   }
 
   const handleSubmit = async (evento) => {
     evento.preventDefault();
-    const request = await Api.fetchPut(musica, id);
+    const request = await Api.fetchPut(produto, id);
     const data = await request.json();
     alert(data.message);
     navigate(`/view/${id}`);
