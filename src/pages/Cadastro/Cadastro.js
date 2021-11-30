@@ -15,7 +15,7 @@ const Cadastro = () => {
     const capa = evento.target.capa.value;
     const duracao = evento.target.duracao.value;
 
-    const musica = {
+    const produto = {
       nome,
       autor,
       genero,
@@ -23,7 +23,7 @@ const Cadastro = () => {
       duracao
     }
 
-    const request = await Api.fetchPost(musica);
+    const request = await Api.fetchPost(produto);
     if(request.status === 500) {
       alert('ERRO NO SERVIDOR')
     }
