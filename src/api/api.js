@@ -1,5 +1,5 @@
 const Api = {
-  apiUrl: 'https://app-pok.herokuapp.com/musicas',
+  apiUrl: 'https://app-pok.herokuapp.com/produtos',
   fetchGetAll: () => fetch(Api.apiUrl),
   fetchGetById: (id) => fetch(`${Api.apiUrl}/${id}`),
   fetchPost: (data) => {
@@ -13,10 +13,10 @@ const Api = {
       })
     })
   },
-  fetchPut: (musica, id) => {
+  fetchPut: (produto, id) => {
     return fetch(`${Api.apiUrl}/${id}`, {
       method: 'PUT',
-      body: JSON.stringify(musica),
+      body: JSON.stringify(produto),
       headers: new Headers({
         "Content-Type": "application/json"
       })
