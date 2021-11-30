@@ -7,7 +7,7 @@ import Api from '../../api/api';
 
 const View = () => {
   // inicializa o estado musica para poder fazer as alteracoes do dom.
-  const [musica, setMusica] = useState({});
+  const [produto, setProduto] = useState({});
   // crio o estado de abertura do modal;
   const [open, setOpen] = useState(false);
 
@@ -20,7 +20,7 @@ const View = () => {
   // chama o use effect sem parametro de dependencia (executa uma vez ao renderizar o componente)
   // chamando a funcao getMusicaById
   useEffect(() => {
-    getMusicaById();
+    getProdutoById();
   }, [])
 
   // acessa o id no parametro da url;
@@ -28,10 +28,10 @@ const View = () => {
   console.log(id);
 
   // faz a chamada para a api passando o id como parametro para buscar o objeto da musica (invidual por id)
-  const getMusicaById = async () => {
+  const getProdutoById = async () => {
     const request = await Api.fetchGetById(id);
-    const musica = await request.json();
-    setMusica(musica);
+    const produto = await request.json();
+    setProduto(produto);
   }
 
   const handleDelete = async() => {
@@ -49,17 +49,17 @@ const View = () => {
     <div className="container">
       <div className="row my-5">
         <div className="col-6">
-          <img src={musica.capa} className="w-100" alt={musica.nome}/>
+          <img src={produto.capa} className="w-100" alt={produto.nome}/>
         </div>
         <div className="col-6">
           <div className="card my-5">
-            <h1 className="text-center my-4"><b>Nome: </b>{musica.nome}</h1>
-            <h3 className="text-center"><b>Autor: </b>{musica.autor}</h3>
-            <h4 className="text-center"><b>Genero: </b> {musica.genero}</h4>
-            <h5 className="text-center"><b>Duracao: </b>{musica.duracao}</h5>
-            <h6 className="text-center"><b>Data de Criação: </b>{musica.dataCriacao}</h6>
+            <h1 className="text-center my-4"><b>Nome: </b>{produto.nome}</h1>
+            <h3 className="text-center"><b>Autor: </b>{produto.autor}</h3>
+            <h4 className="text-center"><b>Genero: </b> {produto.genero}</h4>
+            <h5 className="text-center"><b>Duracao: </b>{produto.duracao}</h5>
+            <h6 className="text-center"><b>Data de Criação: </b>{produto.dataCriacao}</h6>
             <div className="btn-group mt-3 w-100">
-              <Link to={`/edit/${musica._id}`} className="btn btn-info">Editar</Link>
+              <Link to={`/edit/${produto._id}`} className="btn btn-info">Editar</Link>
               <button className="btn btn-danger" onClick={AbreModal}>Excluir</button>
             </div>
           </div>
