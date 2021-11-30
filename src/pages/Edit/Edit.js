@@ -25,7 +25,7 @@ const Edit = () => {
   const getProdutoById = async () => {
     const request = await Api.fetchGetById(id);
     const produto = await request.json();
-    setMusica(produto);
+    setProduto(produto);
   };
 
   const handleFieldsChange = (evento) => {
@@ -67,7 +67,7 @@ const Edit = () => {
                     className="form-control"
                     type="text"
                     placeholder="Nome da musica"
-                    value={musica.nome}
+                    value={produto.nome}
                     onChange={handleFieldsChange}
                     name="nome"
                   />
@@ -82,7 +82,7 @@ const Edit = () => {
                     className="form-control"
                     placeholder="Nome do autor"
                     onChange={handleFieldsChange}
-                    value={musica.autor}
+                    value={produto.autor}
                     name="autor"
                   />
                 </div>
@@ -95,7 +95,7 @@ const Edit = () => {
                     type="text"
                     className="form-control"
                     onChange={handleFieldsChange}
-                    value={musica.genero}
+                    value={produto.genero}
                     placeholder="Genero da musica"
                     name="genero"
                   />
@@ -110,7 +110,7 @@ const Edit = () => {
                     id="capa"
                     type="text"
                     onChange={handleFieldsChange}
-                    value={musica.capa}
+                    value={produto.capa}
                     className="form-control"
                     placeholder="URL da capa do album"
                     name="capa"
@@ -124,7 +124,7 @@ const Edit = () => {
                     id="duracao"
                     type="time"
                     onChange={handleFieldsChange}
-                    value={musica.duracao}
+                    value={produto.duracao}
                     className="form-control"
                     min="00:00"
                     max="10:00"
