@@ -49,18 +49,19 @@ const View = () => {
     <div className="container">
       <div className="row my-5">
         <div className="col-6">
-          <img src={produto.capa} className="w-100" alt={produto.nome}/>
+          <img src={produto.capa} className="w-100" alt={produto.titulo}/>
         </div>
         <div className="col-6">
-          <div className="card my-5">
-            <h1 className="text-center my-4"><b>Nome: </b>{produto.nome}</h1>
-            <h3 className="text-center"><b>Autor: </b>{produto.autor}</h3>
-            <h4 className="text-center"><b>Genero: </b> {produto.genero}</h4>
-            <h5 className="text-center"><b>Duracao: </b>{produto.duracao}</h5>
-            <h6 className="text-center"><b>Data de Criação: </b>{produto.dataCriacao}</h6>
+          <div className="card my-10 bg-light">
+            <h1 className="text-center my-2"><b>Titulo: </b>{produto.titulo}</h1>
+            <h3 className="text-center text-success "><b>Descrição: </b>{produto.descricao}</h3>
+            <h4 className="text-center text-danger"><b>Prioridade: </b> {produto.prioridade}</h4>
+            <h5 className="text-center text-primary"><b>Status: </b>{produto.status}</h5>
+            <h5 className="text-center text-warning"><b>Prazo: </b>{produto.prazo}</h5>
+            <h6 className="text-center text-secondary"><b>Data de Criação: </b>{produto.dataCriacao}</h6>
             <div className="btn-group mt-3 w-100">
               <Link to={`/edit/${produto._id}`} className="btn btn-info">Editar</Link>
-              <button className="btn btn-danger" onClick={AbreModal}>Excluir</button>
+              <button className="btn btn-danger" onClick={AbreModal}> Excluir</button>
             </div>
           </div>
         </div>
