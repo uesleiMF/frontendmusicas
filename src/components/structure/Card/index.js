@@ -7,10 +7,10 @@ const Card = (props) => {
   return (
     <Link to={`/view/${produto._id}`} className="col">
       <div className="card">
-        <img src={produto.capa} alt={produto.nome} className="card-img-top" />
+        <img src={produto.capa} alt={produto.titulo} className="card-img-top" />
         <div className="card-body">
-          <h5 className="card-title">{produto.nome}</h5>
-          <span className="badge bg-primary">{produto.genero}</span>
+          <h5 className="card-title">{produto.titulo}</h5>
+          <span className="badge bg-primary">{produto.tipo}</span>
         </div>
       </div>
     </Link>
