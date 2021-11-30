@@ -1,11 +1,11 @@
 import React from 'react'
-import ListMusic from '../../components/structure/ListMusic';
+import ListProdut from '../../components/structure/ListProdut';
 
 const Home = () => {
   return (
     <div className="container">
       <h1 className="text-center h1">BLUE MUSICAS</h1>
-      <ListMusic/>
+      <ListProdut/>
     </div>
   )
 }
