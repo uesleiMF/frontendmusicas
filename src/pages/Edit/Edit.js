@@ -6,12 +6,15 @@ const Edit = () => {
   const navigate = useNavigate();
   //declarar o estado da musica
   const [produto, setProduto] = useState({
-    nome: '',
-    autor: '',
-    genero: '',
-    capa: '',
-    duracao: ''
-  });
+    titulo: '',
+    descricao:'',
+    prioridade:'',
+    status:'',
+    capa:'',
+    data:'',
+    prazo:''
+
+ });
   
   useEffect(() => {
     getProdutoById();
@@ -49,10 +52,10 @@ const Edit = () => {
   return (
     <div className="container">
       <div className="card mt-4">
-        <div className="card-title">
+        <div className="card-title ">
           <div className="row">
             <div className="col">
-              <h3 className="mx-3 my-3">Edição da Música</h3>
+              <h3 className="mx-3 my-3">Edição do Produto</h3>
             </div>
           </div>
         </div>
@@ -61,43 +64,45 @@ const Edit = () => {
             <div className="row mb-4">
               <div className="col-4">
                 <div className="form-group">
-                  <label htmlFor="nome">Nome da musica:</label>
+                  <label htmlFor="titulo">Titulo:</label>
                   <input
-                    id="nome"
+                    id="titulo"
                     className="form-control"
                     type="text"
-                    placeholder="Nome da musica"
-                    value={produto.nome}
+                    placeholder="Nome do Produto"
+                    value={produto.titulo}
                     onChange={handleFieldsChange}
-                    name="nome"
+                    name="titulo"
                   />
                 </div>
               </div>
               <div className="col-4">
                 <div className="form-group">
-                  <label htmlFor="autor">Nome do autor:</label>
+                  <label htmlFor="descricao">Descrição do produto:</label>
                   <input
-                    id="autor"
+                  
+                    id="descricao"
                     type="text"
                     className="form-control"
-                    placeholder="Nome do autor"
+                    placeholder="Descrição do Produto"
+                    value={produto.descricao}
                     onChange={handleFieldsChange}
-                    value={produto.autor}
-                    name="autor"
+                    name="descricao"
+                    
                   />
                 </div>
               </div>
               <div className="col-4">
                 <div className="form-group">
-                  <label htmlFor="genero">Genero da musica:</label>
+                  <label htmlFor="prioridade">Prioridade do Produto:</label>
                   <input
-                    id="genero"
+                    id="prioridade"
                     type="text"
                     className="form-control"
+                    value={produto.prioridade}
                     onChange={handleFieldsChange}
-                    value={produto.genero}
-                    placeholder="Genero da musica"
-                    name="genero"
+                    placeholder="ruim bom otimo"
+                    name="prioridade"
                   />
                 </div>
               </div>
@@ -105,31 +110,43 @@ const Edit = () => {
             <div className="row">
               <div className="col-4">
                 <div className="form-group">
-                  <label htmlFor="capa">Capa do album:</label>
+                  <label htmlFor="capa">Link do Produto:</label>
                   <input
                     id="capa"
                     type="text"
-                    onChange={handleFieldsChange}
                     value={produto.capa}
+                    onChange={handleFieldsChange}
                     className="form-control"
-                    placeholder="URL da capa do album"
+                    placeholder="URL da Produto"
                     name="capa"
                   />
                 </div>
               </div>
               <div className="col-4">
                 <div className="form-group">
-                  <label htmlFor="duracao">Duração da musica:</label>
+                  <label htmlFor="prazo">Validade do produto:</label>
                   <input
-                    id="duracao"
-                    type="time"
+                    id="prazo"
+                    type="date"
+                    value={produto.prazo}
                     onChange={handleFieldsChange}
-                    value={produto.duracao}
                     className="form-control"
-                    min="00:00"
-                    max="10:00"
-                    placeholder="Duraçao da musica"
-                    name="duracao"
+                    placeholder="Validade"
+                    name="prazo"
+                  />
+                </div>
+              </div>
+              <div className="col-4">
+                <div className="form-group">
+                  <label htmlFor="data">Validade :</label>
+                  <input
+                    id="data"
+                    type="date"
+                    value={produto.data}
+                    onChange={handleFieldsChange}
+                    className="form-control"
+                    placeholder="Validade"
+                    name="data"
                   />
                 </div>
               </div>
@@ -137,11 +154,10 @@ const Edit = () => {
                 <button type="submit" className="btn btn-success">
                   Enviar
                 </button>
-                <button type="button" className="btn btn-danger">
-                  Voltar
-                </button>
+                
               </div>
             </div>
+          
           </form>
         </div>
       </div>
